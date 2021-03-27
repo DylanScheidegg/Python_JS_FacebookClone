@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='js/functionality.js') }}">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Login/">Login</a>
+            <a href="/Register/">Registration</a>
+        </div>
+    </header>
+    <div>
+        <form action="/Home/" method = "POST">
+            {{ form.csrf_token }}
+            <!-- Email -->
+            <div>
+                {{form.eMail.label}}
+                <span class="error">{{ form.eMail.errors | join("|") }}</span>
+            </div>
+            <div>
+                {{form.eMail}}
+            </div>
+            <!-- Password  -->
+            <div>
+                {{form.pWord.label}}
+                <span class="error">{{ form.pWord.errors | join("|") }}</span>
+            </div>
+            <div>
+                {{form.pWord}}
+            </div>
+            <div>
+                {{form.submit()}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

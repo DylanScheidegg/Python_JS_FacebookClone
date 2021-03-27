@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <link rel="script" type="text/javascript" href= "{{ url_for('static',filename='js/functionality.js') }}">
+    <title>CookieClicker</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Profile/">Profile</a>
+            <a href="/Home/">Home</a>
+            <a href="/Friends/">Friends</a>
+            <a href="/CookieClicker/">Cookie Clicker</a>
+            <a style="right: auto;" href="/Logout/">Logout</a>
+        </div>
+    </header>
+
+    <div style="text-align: center;">    
+        <button type="submit" id="imgButton" value="0" onClick="clickCookie()">
+            <img id="Img" height="100px" width="100px" src="/static/cookie.png/" />
+        </button>
+        <p id="cookieCount">{{cookieCount}}</p>
+    </div>
+    
+    <div style="text-align: center;">
+        <span hidden id="cursorCount">{{cookieValues[0]}}</span> <span id="cursorCostSpan">15</span> <button id="cursorCost" disabled onclick="buyCursor(15)">Buy Cursor</button> </br>
+        <span hidden id="grandmaCount">{{cookieValues[1]}}</span> <span id="grandmaCostSpan">100</span> <button id="grandmaCost" disabled onclick="buyCursor(100)">Buy Grandma</button> </br>
+        <span hidden id="farmCount">{{cookieValues[2]}}</span> <span id="farmCostSpan">1100</span> <button id="farmCost" disabled onclick="buyCursor(1100)">Buy Farm</button> </br>
+        <span hidden id="mineCount">{{cookieValues[3]}}</span> <span id="mineCostSpan">12000</span> <button id="mineCost" disabled onclick="buyCursor(12000)">Buy Mine</button> </br>
+        <span hidden id="factoryCount">{{cookieValues[4]}}</span> <span id="factoryCostSpan">130000</span> <button id="factoryCost" disabled onclick="buyCursor(130000)">Buy Factory</button> </br>
+        <span hidden id="bankCount">{{cookieValues[5]}}</span> <span id="bankCostSpan">1400000</span> <button id="bankCost" disabled onclick="buyCursor(1400000)">Buy Bank</button> </br>
+        <span hidden id="templeCount">{{cookieValues[6]}}</span> <span id="templeCostSpan">20000000</span> <button id="templeCost" disabled onclick="buyCursor(20000000)">Buy Temple</button> </br>
+        <span hidden id="wizTowerCount">{{cookieValues[7]}}</span> <span id="wizTowerCostSpan">330000000</span> <button id="wizTowerCost" disabled onclick="buyCursor(330000000)">Buy Wizard Tower</button> </br>
+        <span hidden id="shipCount">{{cookieValues[8]}}</span> <span id="shipCostSpan">5100000000</span> <button id="shipCost" disabled onclick="buyCursor(5100000000)">Buy Shipment</button> </br>
+        <span hidden id="labCount">{{cookieValues[9]}}</span> <span id="labCostSpan">75000000000</span> <button id="labCost" disabled onclick="buyCursor(75000000000)">Buy Alchemy Lab</button> </br>
+        <span hidden id="portalCount">{{cookieValues[10]}}</span> <span id="portalCostSpan">1000000000000</span> <button id="portalCost" disabled onclick="buyCursor(1000000000000)">Buy Portal</button> </br>
+        <span hidden id="timeCount">{{cookieValues[11]}}</span> <span id="timeCostSpan">14000000000000</span> <button id="timeCost" disabled onclick="buyCursor(14000000000000)">Buy Time Machine</button> </br>
+        <span hidden id="antiCount">{{cookieValues[12]}}</span> <span id="antiCostSpan">170000000000000</span> <button id="antiCost" disabled onclick="buyCursor(170000000000000)">Buy Antimater Condenser</button> </br>
+        <span hidden id="prismCount">{{cookieValues[13]}}</span> <span id="prismCostSpan">2100000000000000</span> <button id="prismCost" disabled onclick="buyCursor(2100000000000000)">Buy Prism</button> </br>
+        <span hidden id="chanceCount">{{cookieValues[14]}}</span> <span id="chanceCostSpan">26000000000000000</span> <button id="chanceCost" disabled onclick="buyCursor(26000000000000000)">Buy Chancemaker</button> </br>
+        <span hidden id="fractalCount">{{cookieValues[15]}}</span> <span id="fractalCostSpan">310000000000000000</span> <button id="fractalCost" disabled onclick="buyCursor(310000000000000000)">Buy Fractal Engine</button> </br>
+        <span hidden id="jsCount">{{cookieValues[16]}}</span> <span id="jsCostSpan">71000000000000000000</span> <button id="jsCost" disabled onclick="buyCursor(71000000000000000000)">Buy JavaScript Console</button> </br>
+        <span hidden id="idleverseCount">{{cookieValues[17]}}</span> <span id="idleverseCostSpan">12000000000000000000000</span> <button id="idleverseCost" disabled onclick="buyCursor(12000000000000000000000)">Buy Idleverse</button>
+    </div>
+    <script src="/static/js/functionality.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Login/">Login</a>
+            <a href="/Register/">Registration</a>
+        </div>
+    </header>
+    <div>
+        <form action="/Register/" method = "POST">
+            {{ form.csrf_token }}
+            <div>
+                {{form.eMail.label}}
+                <span class="error">{{ form.eMail.errors | join("|") }}</span>
+                {{form.eMail}}
+            </div>
+            <div>
+                {{form.pWord.label}}
+                <span class="error">{{ form.pWord.errors | join("|") }}</span>
+                {{form.pWord}}
+            </div>
+            <div>
+                {{form.fName.label}}
+                <span class="error">{{ form.fName.errors | join("|") }}</span>
+                {{form.fName}}
+            </div>
+            <div>
+                {{form.lName.label}}
+                <span class="error">{{ form.lName.errors | join("|") }}</span>
+                {{form.lName}}
+            </div>
+            <div>
+                {{form.gender.label}}
+                <span class="error">{{ form.gender.errors | join("|") }}</span>
+                {{form.gender}}
+            </div>
+            <div>
+                {{form.genderOther.label}}
+                <span class="error">{{ form.genderOther.errors | join("|") }}</span>
+                {{form.genderOther}}
+            </div>
+            <div>
+                {{form.DOB.label}}
+                <span class="error">{{ form.DOB.errors | join("|") }}</span>
+                {{form.DOB(type="date")}}
+            </div>
+            <div>
+                {{form.address.label}}
+                <span class="error">{{ form.address.errors | join("|") }}</span>
+                {{form.address}}
+            </div>
+            <div>
+                {{form.city.label}}
+                <span class="error">{{ form.city.errors | join("|") }}</span>
+                {{form.city}}
+            </div>
+            <div>
+                {{form.state.label}}
+                <span class="error">{{ form.state.errors | join("|") }}</span>
+                {{form.state}}
+            </div>
+            <div>
+                {{form.zipCode.label}}
+                <span class="error">{{ form.zipCode.errors | join("|") }}</span>
+                {{form.zipCode}}
+            </div>
+            <div>
+                {{form.country.label}}
+                <span class="error">{{ form.country.errors | join("|") }}</span>
+                {{form.country}}
+            </div>
+            <div>
+                {{form.submit()}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <link type=text/javascript href= "{{ url_for('static',filename='js/functionality.js') }}">
+    <title></title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Profile/">Profile</a>
+            <a href="/Home/">Home</a>
+            <a href="/Friends/">Friends</a>
+            <a href="/CookieClicker/">Cookie Clicker</a>
+            <a style="text-align: right;" href="/Logout/">Logout</a>
+        </div>
+    </header>
+
+    <table style="width: 90%; margin-left:auto; margin-right:auto; inset-block: inherit;">
+        <tr style="height:max-content">
+            <td>
+                <div style="vertical-align: text-top; background-color: rgb(169, 193, 238); overflow-wrap: break-word; position: relative;">
+                    <p>Left section</p>
+                    <a href="/Profile/">{{user[0]}}</a></br>
+                    <a href="/Friends/">Friends</a></br>
+                    <a href="/Groups/">Group</a></br>
+                    <a href="/Calendar/">Calendar</a></br>
+                    <a href="/Games/">Games</a>
+                </div>
+            </td>
+            <td style="overflow: hidden;">
+                <div style="background-color: rgb(169, 193, 238); overflow-wrap: break-word; overflow-y: scroll; position: relative; max-height: 600px;">
+                    <p>Post Section</p>
+                    {%for x in posts%}
+                        <div style="outline-style: groove; text-align: left;">
+                            <div style="height: 15%;"><h10>{{x[0]}} {{x[1]}}</h10></div>
+                            <div>
+                                <p>{{x[2]}}</p>
+                                {% if x[4] != 'IMGDOESNOTEXISTATTHEMOMENT' %}
+                                    </br>
+                                    <img height="25%" width="25%" src="data:image/png;base64, {{x[4]}}">
+                                {% endif %}
+                            </div>
+                            <div style="height: 15%;"><p>{{x[3]}}</p></div>
+                        </div></br>
+                    {%endfor%}
+                </div>
+            </td>
+            <td>
+                <div style="vertical-align: text-top; background-color: rgb(169, 193, 238); overflow-wrap: break-word; position: relative; overflow-y: scroll;">
+                    <p>Friends Section</p>
+                    <h1>Friends</h1>
+                    {%if friends|length > 0%}
+                        {%for x in friends%}
+                            <div>{{x[0]}} {{x[1]}}</div></br>
+                        {%endfor%}
+                    {%endif%}
+                </div>
+            </td>
+        </tr>
+    </table>
+    </br>
+    </br>
+    <tfoot class="border-top footer text-muted" style="border-top: gray;">
+        <div class="container">
+            &copy; 2021 - Dylan Scheidegg - Privacy</a>
+        </div>
+    </tfoot>
+</body>
+</html>

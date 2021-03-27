@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <link type=text/javascript href= "{{ url_for('static',filename='js/functionality.js') }}">
+    <title>Profile</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Profile/">Profile</a>
+            <a href="/Home/">Home</a>
+            <a href="/Friends/">Friends</a>
+            <a href="/CookieClicker/">Cookie Clicker</a>
+            <a href="/Edit/">Edit</a>
+            <a style="right: auto;" href="/Logout/">Logout</a>
+        </div>
+    </header>
+
+    <div style="text-align: center;">
+        <div style="text-align: center; position: absolute; width: 90%; height: 25%;">
+            {% if backImg != 'IMGDOESNOTEXISTATTHEMOMENT' %}
+                <img style="width: 100%; height: 100%;" src="data:image/png;base64, {{backImg}}">
+            {% else %}
+                <img style="width: 100%; height: 100%;" src="/static/defaultbg.png">
+            {% endif %}
+        </div>
+        <div style="width: 100px; height: 100px; position: relative; z-index: 1;">
+            <div style="position: absolute; width: 100%; height: 100%; z-index: 1">
+                {% if profImg != 'IMGDOESNOTEXISTATTHEMOMENT' %}
+                    <img style="border-radius: 50%; width: 100%; height: 100%;" src="data:image/png;base64, {{profImg}}">
+                {% else %}
+                    <img style="border-radius: 50%; width: 100%; height: 100%;" src="/static/defaultpf.png">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </br></br></br></br></br></br></br>
+    <div>
+        <p>{{user.fName}} {{user.lName}}</p>
+    </div>
+    <div style="background-color: rgb(169, 193, 238); text-align: center; margin-left:auto; margin-right:auto; width: max-content;">
+        <form action="/Profile/" method = "POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div>
+                {{form.text.label}}
+                <span class="error">{{ form.text.errors | join("|") }}</span>
+                {{form.text}}
+            </div>
+            <div>
+                {{form.img.label}}
+                <span class="error">{{ form.img.errors | join("|") }}</span>
+                {{form.img}}
+            </div>
+            <div>
+                {{form.submit()}}
+            </div>
+        </form>
+    </div> 
+    </br>
+    <div style="background-color: rgb(169, 193, 238); overflow-wrap: break-word; overflow-y: scroll; position: relative; max-height: 600px;">
+        <p>Post Section</p>
+        {%for x in posts%}
+            <div style="outline-style: groove; text-align: left;">
+                <div style="height: 15%;"><h10>{{x[0]}} {{x[1]}}</h10></div>
+                <div>
+                    <p>{{x[2]}}</p>
+                    {% if x[4] != 'IMGDOESNOTEXISTATTHEMOMENT' %}
+                        </br>
+                        <img height="25%" width="25%" src="data:image/png;base64, {{x[4]}}">
+                    {% endif %}
+                </div>
+                <div style="height: 15%;"><p>{{x[3]}}</p></div>
+            </div></br>
+        {%endfor%}
+    </div>
+
+</body>
+</html>

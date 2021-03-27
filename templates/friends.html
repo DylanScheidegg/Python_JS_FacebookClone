@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device, initial-scale=1">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cssstyle.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='js/functionality.js') }}">
+    <title>Friends</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="/Profile/">Profile</a>
+            <a href="/Home/">Home</a>
+            <a href="/Friends/">Friends</a>
+            <a href="/CookieClicker/">Cookie Clicker</a>
+            <a style="text-align: right;" href="/Logout/">Logout</a>
+        </div>
+    </header>
+    </br>
+    <div style="background-color: rgb(169, 193, 238); overflow-wrap: break-word; overflow-y: scroll; position: relative; max-height: 600px;">
+        {%for x in pList%}
+            <form action="/Friends/" method = "POST">
+                <div style="outline-style: groove; text-align: left;">
+                    <div style="height: 15%;"><h10>{{x[1]}} {{x[2]}}</h10></div>
+                    <button type="submit" name="submitFriend" value="{{x[0]}}">Add</button>
+                </div></br>
+            </form>
+        {%endfor%}
+    </div>
+</body>
+</html>
