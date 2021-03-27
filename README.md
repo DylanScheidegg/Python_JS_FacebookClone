@@ -1,5 +1,7 @@
 # Python_JS_FacebookClone
 
+Don't mind the layout. I'm more backend than frontend. I tried my best. This is 3 MONTHS OF WORK!
+
 # Login Page
 ![image](https://user-images.githubusercontent.com/62270254/112708393-2a38e400-8e88-11eb-85da-66383d093205.png)
 
